@@ -1,0 +1,20 @@
+{
+  "mocha.files.glob": "test/**/*.ts",
+  "mocha.showInExplorer": false,
+  "mocha.runTestsOnSave": "true",
+  "mocha.requires": [
+    "ts-node/register",
+    "source-map-support/register"
+  ],
+  "mocha.options": {
+    "timeout": 130000,
+    "ui": "bdd",
+    "reporter": "Dot",
+    "recursive": true,
+    "colors": true,
+    "require": [
+      "ts-node/register",
+      "source-map-support/register"
+    ]
+  },
+}
