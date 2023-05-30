@@ -1,20 +1,11 @@
-import { Knex } from 'knex';
+import { Kysely } from 'kysely';
 import { AdapterServiceOptions, AdapterParams, AdapterQuery } from '@feathersjs/adapter-commons';
-export interface KnexAdapterOptions extends AdapterServiceOptions {
-    Model: Knex;
+export interface KyselyAdapterOptions extends AdapterServiceOptions {
+    Model: Kysely<any>;
+    /**
+     * The table name
+     */
     name: string;
-    schema?: string;
+    dialectType: 'mysql' | 'postgres' | 'sqlite';
 }
-export interface KnexAdapterTransaction {
-    starting: boolean;
-    parent?: KnexAdapterTransaction;
-    committed?: any;
-    resolve?: any;
-    trx?: Knex.Transaction;
-    id?: number;
-    promise?: Promise<any>;
-}
-export interface KnexAdapterParams<Q = AdapterQuery> extends AdapterParams<Q, Partial<KnexAdapterOptions>> {
-    knex?: Knex.QueryBuilder;
-    transaction?: KnexAdapterTransaction;
-}
+export type KyselyAdapterParams<Q extends AdapterQuery = AdapterQuery> = AdapterParams<Q>;

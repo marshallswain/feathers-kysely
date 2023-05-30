@@ -485,9 +485,9 @@ describe('Feathers Kysely Service', () => {
       )
     })
 
-    // it('get by id works with `createQuery` as params.knex', async () => {
-    //   const knex = peopleService.createQuery()
-    //   const dave = await peopleService.get(daves[0].id, { knex })
+    // it('get by id works with `createQuery` as params.kysely', async () => {
+    //   const kysely = peopleService.createQuery()
+    //   const dave = await peopleService.get(daves[0].id, { kysely })
 
     //   assert.deepStrictEqual(dave, daves[0])
     // })

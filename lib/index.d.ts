@@ -1,12 +1,11 @@
 import { PaginationOptions } from '@feathersjs/adapter-commons';
 import { Paginated, ServiceMethods, Id, NullableId, Params } from '@feathersjs/feathers';
-import { KnexAdapter } from './adapter';
-import { KnexAdapterParams } from './declarations';
+import { KyselyAdapter } from './adapter';
+import { KyselyAdapterParams } from './declarations';
 export * from './declarations';
 export * from './adapter';
 export * from './error-handler';
-export * as transaction from './hooks';
-export declare class KnexService<Result = any, Data = Partial<Result>, ServiceParams extends Params<any> = KnexAdapterParams, PatchData = Partial<Data>> extends KnexAdapter<Result, Data, ServiceParams, PatchData> implements ServiceMethods<Result | Paginated<Result>, Data, ServiceParams, PatchData> {
+export declare class KyselyService<Result = any, Data = Partial<Result>, ServiceParams extends Params<any> = KyselyAdapterParams, PatchData = Partial<Data>> extends KyselyAdapter<Result, Data, ServiceParams, PatchData> implements ServiceMethods<Result | Paginated<Result>, Data, ServiceParams, PatchData> {
     find(params?: ServiceParams & {
         paginate?: PaginationOptions;
     }): Promise<Paginated<Result>>;

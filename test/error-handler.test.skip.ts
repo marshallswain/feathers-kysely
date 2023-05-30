@@ -1,16 +1,16 @@
 import assert from 'assert'
 import { errorHandler } from '../src'
 
-describe('Knex Error handler', () => {
+describe('Kysely Error handler', () => {
   it('sqlState', () => {
     assert.throws(
       () =>
         errorHandler({
-          sqlState: '#23503'
+          sqlState: '#23503',
         }),
       {
-        name: 'BadRequest'
-      }
+        name: 'BadRequest',
+      },
     )
   })
 
@@ -19,11 +19,11 @@ describe('Knex Error handler', () => {
       () =>
         errorHandler({
           code: 'SQLITE_ERROR',
-          errno: 1
+          errno: 1,
         }),
       {
-        name: 'BadRequest'
-      }
+        name: 'BadRequest',
+      },
     )
     assert.throws(() => errorHandler({ code: 'SQLITE_ERROR', errno: 2 }), { name: 'Unavailable' })
     assert.throws(() => errorHandler({ code: 'SQLITE_ERROR', errno: 3 }), { name: 'Forbidden' })
@@ -38,28 +38,28 @@ describe('Knex Error handler', () => {
           code: '22P02',
           message: 'Key (id)=(1) is not present in table "users".',
           severity: 'ERROR',
-          routine: 'ExecConstraints'
+          routine: 'ExecConstraints',
         }),
       {
-        name: 'NotFound'
-      }
+        name: 'NotFound',
+      },
     )
     assert.throws(
       () =>
         errorHandler({ code: '2874', message: 'Something', severity: 'ERROR', routine: 'ExecConstraints' }),
       {
-        name: 'Forbidden'
-      }
+        name: 'Forbidden',
+      },
     )
     assert.throws(
       () =>
         errorHandler({ code: '3D74', message: 'Something', severity: 'ERROR', routine: 'ExecConstraints' }),
       {
-        name: 'Unprocessable'
-      }
+        name: 'Unprocessable',
+      },
     )
     assert.throws(() => errorHandler({ code: 'XYZ', severity: 'ERROR', routine: 'ExecConstraints' }), {
-      name: 'GeneralError'
+      name: 'GeneralError',
     })
   })
 })

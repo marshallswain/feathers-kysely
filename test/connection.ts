@@ -6,8 +6,8 @@ export default (DB: string) => {
         host: '127.0.0.1',
         user: 'root',
         password: '',
-        database: 'feathers_knex'
-      }
+        database: 'feathers_kysely',
+      },
     }
   }
 
@@ -18,15 +18,15 @@ export default (DB: string) => {
         host: 'localhost',
         database: 'feathers',
         user: 'postgres',
-        password: 'postgres'
-      }
+        password: 'postgres',
+      },
     }
   }
 
   return {
     client: 'sqlite3',
     connection: {
-      filename: './db.sqlite'
-    }
+      filename: './db.sqlite',
+    },
   }
 }
