@@ -2,7 +2,7 @@
   "name": "feathers-kysely",
   "description": "Feathers SQL service adapter using Kysely",
   "version": "0.0.1",
-  "homepage": "https://feathersjs.com",
+  "homepage": "https://github.com/marshallswain/feathers-kysely",
   "main": "lib/",
   "keywords": [
     "feathers",
@@ -20,7 +20,7 @@
   "author": {
     "name": "Marshall Thompson",
     "email": "marshall@creativeideal.net",
-    "url": "https://feathersjs.com"
+    "url": "https://github.com/marshallswain"
   },
   "contributors": [],
   "bugs": {
@@ -40,8 +40,7 @@
   ],
   "scripts": {
     "prepublish": "npm run compile",
-    "pack": "npm pack --pack-destination ../generators/test/build",
-    "compile": "shx rm -rf lib/ && tsc && npm run pack",
+    "compile": "shx rm -rf lib/ && tsc",
     "test": "mocha --config .mocharc.json --recursive test/**.test.ts test/**/*.test.ts",
     "build": "npm run compile",
     "release:pre": "npm run build && npm version prerelease && npm publish --tag pre",
