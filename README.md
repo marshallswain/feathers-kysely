@@ -30,7 +30,7 @@ Like all Feathers services, you can access the underlying database adapter at `s
 
 ## No Transactions Support
 
-Note that Transactions are not supported, yet.
+Note that I haven't created any Feathers-specific tooling around doing transactions, yet, but you should be able to follow the [Kysely documentation on transactions](https://kysely-org.github.io/kysely/classes/Transaction.html#transaction) and put Feathers-Kysely service calls inside the execute block.
 
 ## License
 
