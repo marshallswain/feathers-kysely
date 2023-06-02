@@ -42,7 +42,11 @@
     "prepublish": "npm run compile",
     "pack": "npm pack --pack-destination ../generators/test/build",
     "compile": "shx rm -rf lib/ && tsc && npm run pack",
-    "test": "mocha --config .mocharc.json --recursive test/**.test.ts test/**/*.test.ts"
+    "test": "mocha --config .mocharc.json --recursive test/**.test.ts test/**/*.test.ts",
+    "release:pre": "npm run build && npm version prerelease && npm publish --tag pre",
+    "release:patch": "npm run build && npm version patch && npm publish",
+    "release:minor": "npm run build && npm version minor && npm publish",
+    "release:major": "npm run build && npm version major && npm publish"
   },
   "directories": {
     "lib": "lib"
