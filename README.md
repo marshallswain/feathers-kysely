@@ -13,7 +13,22 @@ npm install feathers-kysely --save
 
 ## Documentation
 
-Official docs are pending.  In the meantime, refer to the [Feathers Knex adapter documentation](https://feathersjs.com/api/databases/knex.html) for more details.
+Official docs are pending.  You can learn a lot from the tests, though:
+
+- [Connect to a Database](https://github.com/marshallswain/feathers-kysely/blob/master/test/index.test.ts#L91-L115)
+- [Create Tables](https://github.com/marshallswain/feathers-kysely/blob/master/test/index.test.ts#L120-L162)
+- [Create Kysely Services](https://github.com/marshallswain/feathers-kysely/blob/master/test/index.test.ts#L226-L252)
+- [Register Services](https://github.com/marshallswain/feathers-kysely/blob/master/test/index.test.ts#L268-L277)
+
+## Note about custom queries
+
+Like all Feathers services, you can access the underlying database adapter at `service.Model`.  One thing worth noting in `feathers-kysely` is that `service.Model` is the full Kysely instance and not locked down to the current table.  So you have to provide the table name in each of the methods that you use, like
+
+- `service.Model.selectFrom('my-table')...`
+- `service.Model.insertInto('my-table')...`
+- `service.Model.updateTable('my-table')...`
+
+## No Transactions Support
 
 Note that Transactions are not supported, yet.
 
