@@ -16,7 +16,7 @@ import {
   UpdateResult,
 } from 'kysely'
 
-// See https://kysely-org.github.io/kysely/variables/OPERATORS.html
+// See https://kysely-org.github.io/kysely-apidoc/variables/OPERATORS.html
 const OPERATORS: Record<string, ComparisonOperatorExpression> = {
   $lt: '<',
   $lte: '<=',
